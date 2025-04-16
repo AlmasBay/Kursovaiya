@@ -1,0 +1,29 @@
+.map-container {
+  background-color: #FF7514;
+  padding: 20px;
+  font-family: "Dela Gothic One", sans-serif;
+  
+}
+
+.map-title {
+  color: #fff;
+  text-align: center;
+  font-size: 70px;
+}
+
+.map-wrapper {
+  background-color: #ff6347;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.map {
+  height: 500px; /* Увеличил высоту */
+  width: 100vw; /* Полная ширина экрана */
+  max-width: 100%;
+  z-index: 1;
+}
+
+.error-message {
+  color: red;
+}

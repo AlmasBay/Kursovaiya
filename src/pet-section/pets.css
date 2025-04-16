@@ -1,0 +1,16 @@
+.title-pets {
+  text-align: center;
+  margin: 0 ;
+  
+  color: white;
+  font-family: "Dela Gothic One", sans-serif;
+font-weight: 400;
+  font-size: 70px;
+  width: 100%;
+}
+
+.SecondSection{
+  user-select: none;
+}
+
+

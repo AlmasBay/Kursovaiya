@@ -1,0 +1,39 @@
+body{
+  margin: 0px;
+}
+
+
+.header{
+  height: 1080px;
+  user-select: none;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+
+
+.blurred {
+  filter: blur(10px);
+}
+.quote{
+  text-align: center;
+  margin-top: 540px;
+  color: white;
+  font-size: 60px;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+
+
+

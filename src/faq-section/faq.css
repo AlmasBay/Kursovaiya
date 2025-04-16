@@ -1,0 +1,77 @@
+.faq-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+.faq-section {
+  font-family: "Dela Gothic One", sans-serif;
+  background-color: #FF7514;
+  color: #fff;
+  
+  padding: 60px 20px;
+  box-sizing: border-box;
+
+}
+
+.faq-title {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 40px;
+  
+}
+.faq-container span{
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 30px;
+}
+
+.faq-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+.faq-item {
+  
+  border-bottom: 1px solid #fff;
+}
+
+.faq-item button {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 15px;
+  cursor: pointer;
+}
+
+.faq-item p {
+  
+  font-size: 20px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease;
+  padding: 0 15px;
+}
+
+.faq-item p.show {
+  max-height: 200px;
+  opacity: 1;
+  padding-bottom: 20px;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+
+.icon.rotate {
+  transform: rotate(180deg);
+}

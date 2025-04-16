@@ -1,0 +1,86 @@
+.mobile-nav {
+    background-color: #FF7514;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    font-family: "Dela Gothic One", sans-serif;
+  }
+  
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+  
+  .mobile-logo {
+    width: 40px;
+  }
+  
+  .mobile-logo-text {
+    color: white;
+    font-size: 24px;
+    margin-left: 10px;
+  }
+  
+  .burger {
+    width: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .line {
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Simple animation */
+  .line.open:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .line.open:nth-child(2) {
+    opacity: 0;
+  }
+  .line.open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+  
+  .mobile-menu {
+    background-color: #FF7514;  /* Оранжевый фон */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .mobile-menu a {
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;  /* Белый текст */
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    transition: color 0.2s;
+  }
+  
+  .mobile-menu a:hover {
+    color: #4f4f4f;  /* Цвет при наведении */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

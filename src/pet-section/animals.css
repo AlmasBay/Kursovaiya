@@ -1,0 +1,114 @@
+/* Общие стили для всех животных */
+.parrot, .dog, .cat {
+    filter: brightness(80%);
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    caret-color: transparent;
+    margin: 0;
+}
+
+.parrot:hover,
+.dog:hover,
+.cat:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 117, 20, 0.8));
+}
+
+
+/* Для контейнеров с изображениями, чтобы они тоже имели одинаковые размеры */
+.parrot, .dog, .cat {
+    width: 500px; /* Задаём одинаковую ширину контейнерам */
+    height: 700px; /* Задаём одинаковую высоту контейнерам */
+    
+    align-items: center; /* Центрируем изображение по вертикали */
+    justify-content: center; /* Центрируем изображение по горизонтали */
+}
+
+/* Modal overlays */
+.modal-overlay-parrot,
+.modal-overlay-dog,
+.modal-overlay {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal content - parrot & dog */
+.modal-content-parrot,
+.modal-content-dog {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* Modal content - cat */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease;
+}
+
+/* Close buttons */
+.close-btn-parrot,
+.close-btn-dog,
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn {
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Video in cat modal */
+.modal-video {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+/* Typography */
+.title-modal,
+.Pre-title-modal,
+.paragraph {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

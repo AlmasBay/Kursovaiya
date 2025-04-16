@@ -1,0 +1,176 @@
+.TestComponent {
+  padding-top: 70px;
+  background-color: #FF7514;
+  min-height: 100vh;
+  text-align: center;
+  user-select: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Title-test, .PreTitle-test {
+  margin-top: 0;
+  font-family: "Dela Gothic One", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.Title-test {
+  font-size: 70px;
+}
+
+.PreTitle-test {
+  font-size: 40px;
+}
+
+.Test {
+  background-color: transparent;
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.question-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  font-family: "Dela Gothic One", sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.answer-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.answer-btn {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 15px 30px;
+  border-radius: 8px;
+  border: 2px solid #FF7514;
+  background-color: #FF7514;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.answer-btn:hover {
+  background-color: #e66300;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.result {
+  font-family: "Dela Gothic One", sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.result h3 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.pet-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  margin-top: 20px;
+  display: block;
+  margin: 30px auto 0;
+  border-radius: 8px;
+}
+
+.restart-btn {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 8px;
+  border: 2px solid #FF7514;
+  background-color: #FF7514;
+  color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+  background-color: #e66300;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Media Queries for Responsive Design === */
+
+@media (max-width: 768px) {
+  .Title-test {
+    font-size: 50px;
+  }
+
+  .PreTitle-test {
+    font-size: 28px;
+  }
+
+  .Test,
+  .result {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .answer-btn {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  .restart-btn {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+
+  .question-container {
+    padding: 20px;
+  }
+
+  .pet-image {
+    height: auto;
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Title-test {
+    font-size: 36px;
+  }
+
+  .PreTitle-test {
+    font-size: 20px;
+  }
+
+  .answer-btn {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+
+  .restart-btn {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+
+  .result h3 {
+    font-size: 24px;
+  }
+
+  .question-container {
+    padding: 15px;
+  }
+}
