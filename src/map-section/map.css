@@ -1,29 +1,142 @@
 .map-container {
   background-color: #FF7514;
-  padding: 20px;
+  padding: 15px;
   font-family: "Dela Gothic One", sans-serif;
-  
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .map-title {
   color: #fff;
   text-align: center;
-  font-size: 70px;
+  font-size: 2.5rem;
+  margin: 10px 0;
 }
 
 .map-wrapper {
   background-color: #ff6347;
   padding: 10px;
   border-radius: 8px;
+  margin: 0 auto;
+  max-width: 100%;
 }
 
 .map {
-  height: 500px; /* Увеличил высоту */
-  width: 100vw; /* Полная ширина экрана */
-  max-width: 100%;
+  height: 60vh;
+  width: 100%;
   z-index: 1;
+  border-radius: 8px;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
 }
 
 .error-message {
-  color: red;
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.stores-list {
+  margin-top: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.stores-list h2 {
+  color: #FF7514;
+  font-size: 1.2rem;
+  margin: 5px 0 10px;
+}
+
+.store-item {
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.store-item:last-child {
+  border-bottom: none;
+}
+
+.store-item h3 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.store-item p {
+  margin: 0 0 5px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.store-popup {
+  min-width: 150px;
+  max-width: 200px;
+}
+
+.store-popup strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.store-popup p {
+  margin: 5px 0;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+  .map-container {
+    padding: 10px;
+  }
+  
+  .map-title {
+    font-size: 1.8rem;
+    margin: 5px 0;
+  }
+  
+  .map {
+    height: 50vh;
+  }
+  
+  .stores-list {
+    max-height: 250px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .map-title {
+    font-size: 1.5rem;
+  }
+  
+  .map-wrapper {
+    padding: 5px;
+  }
+  
+  .map {
+    height: 40vh;
+  }
+  
+  .stores-list h2 {
+    font-size: 1rem;
+  }
+  
+  .store-item h3 {
+    font-size: 0.9rem;
+  }
+  
+  .store-item p {
+    font-size: 0.8rem;
+  }
 }

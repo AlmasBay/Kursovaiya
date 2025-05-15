@@ -4,17 +4,34 @@ import parrot from "../../assets/parrot.png";
 
 const Parrot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(1);
+  const totalSections = 5;
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setActiveSection(prev => (prev < totalSections ? prev + 1 : prev));
+  };
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setActiveSection(prev => (prev > 1 ? prev - 1 : prev));
+  };
 
   return (
-    <>
-      <img src={parrot} alt="Parrot" className="parrot" onClick={() => setIsOpen(true)} />
+    <div className="animal-container">
+      <img 
+        src={parrot} 
+        alt="Parrot" 
+        className="parrot" 
+        onClick={() => setIsOpen(true)} 
+      />
 
       {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-btn" onClick={() => setIsOpen(false)}>
-              &times;
-            </span>
+            <button className="close-btn" onClick={() => setIsOpen(false)}>
+              ✕
+            </button>
             <h1 className="title-modal">Уход за попугаями: Полное руководство</h1>
 
             <h2 className="Pre-title-modal">1. Питание</h2>
@@ -72,10 +89,12 @@ const Parrot = () => {
               title="Игры и обучение попугая"
               allowFullScreen
             ></iframe>
+            
+
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

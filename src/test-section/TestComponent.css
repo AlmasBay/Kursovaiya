@@ -6,21 +6,30 @@
   user-select: none;
   padding-left: 10px;
   padding-right: 10px;
+  font-family: "Dela Gothic One", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #FF7514, #FF9D5C);
 }
 
 .Title-test, .PreTitle-test {
   margin-top: 0;
-  font-family: "Dela Gothic One", sans-serif;
   color: white;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .Title-test {
   font-size: 70px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
 }
 
 .PreTitle-test {
   font-size: 40px;
+  margin-bottom: 40px;
+  font-weight: 400;
 }
 
 .Test {
@@ -28,86 +37,254 @@
   width: 700px;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .question-container {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 30px;
-  font-family: "Dela Gothic One", sans-serif;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.question-container h3 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
 }
 
 .answer-buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .answer-btn {
   font-family: "Dela Gothic One", sans-serif;
   font-size: 20px;
   cursor: pointer;
-  margin-top: 20px;
-  padding: 15px 30px;
-  border-radius: 8px;
-  border: 2px solid #FF7514;
+  padding: 18px 30px;
+  border-radius: 15px;
+  border: none;
   background-color: #FF7514;
   color: white;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 117, 20, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
 .answer-btn:hover {
   background-color: #e66300;
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(230, 99, 0, 0.4);
+}
+
+.answer-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(230, 99, 0, 0.4);
 }
 
 .result {
   font-family: "Dela Gothic One", sans-serif;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 700px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 600px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
+  transition: all 0.3s ease;
 }
 
 .result h3 {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
   color: #333;
+  margin-bottom: 20px;
 }
 
 .pet-image {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
   max-height: 300px;
-  margin-top: 20px;
+  margin: 25px auto;
   display: block;
-  margin: 30px auto 0;
-  border-radius: 8px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.pet-image:hover {
+  transform: scale(1.03);
 }
 
 .restart-btn {
   font-family: "Dela Gothic One", sans-serif;
   font-size: 20px;
-  padding: 15px 30px;
-  border-radius: 8px;
-  border: 2px solid #FF7514;
+  padding: 14px 30px;
+  border-radius: 15px;
+  border: none;
   background-color: #FF7514;
   color: white;
   cursor: pointer;
-  margin: 0 auto;
+  margin: 15px auto;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 117, 20, 0.3);
+  display: block;
+}
+
+.start-test-btn {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 22px;
+  padding: 16px 35px;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  margin: 20px auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  display: block;
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .restart-btn:hover {
   background-color: #e66300;
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(230, 99, 0, 0.4);
+}
+
+.start-test-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: white;
+}
+
+.restart-btn:active, .start-test-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.test-start-container {
+  margin: 40px auto;
+}
+
+.previous-result {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 600px;
+  margin: 30px auto;
+  transition: all 0.3s ease;
+}
+
+.previous-result h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.previous-result p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #FF7514;
+  margin-bottom: 15px;
+}
+
+.loading {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 24px;
+  color: white;
+  margin-top: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Стили для модального окна */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: slideIn 0.4s ease;
+  position: relative;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content h3 {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.modal-close-btn {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 18px;
+  padding: 12px 30px;
+  border-radius: 15px;
+  border: none;
+  background-color: #FF7514;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 117, 20, 0.3);
+}
+
+.modal-close-btn:hover {
+  background-color: #e66300;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(230, 99, 0, 0.4);
+}
+
+.modal-close-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(230, 99, 0, 0.4);
 }
 
 /* === Media Queries for Responsive Design === */
@@ -122,28 +299,41 @@
   }
 
   .Test,
-  .result {
+  .result,
+  .previous-result {
     width: 90%;
-    padding: 15px;
+    padding: 25px;
   }
 
   .answer-btn {
     font-size: 18px;
-    padding: 12px 20px;
+    padding: 14px 20px;
   }
 
-  .restart-btn {
+  .restart-btn,
+  .start-test-btn {
     font-size: 18px;
-    padding: 12px 20px;
+    padding: 14px 25px;
   }
 
   .question-container {
-    padding: 20px;
+    padding: 30px;
   }
 
   .pet-image {
-    height: auto;
     max-height: 250px;
+  }
+  
+  .modal-content {
+    padding: 30px;
+  }
+  
+  .modal-content h3 {
+    font-size: 24px;
+  }
+  
+  .modal-content p {
+    font-size: 18px;
   }
 }
 
@@ -158,19 +348,49 @@
 
   .answer-btn {
     font-size: 16px;
-    padding: 10px 16px;
+    padding: 12px 16px;
   }
 
-  .restart-btn {
+  .restart-btn,
+  .start-test-btn {
     font-size: 16px;
-    padding: 10px 16px;
+    padding: 12px 20px;
   }
 
   .result h3 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .question-container {
-    padding: 15px;
+    padding: 20px;
+  }
+  
+  .previous-result {
+    padding: 20px;
+  }
+  
+  .previous-result h3 {
+    font-size: 20px;
+  }
+  
+  .previous-result p {
+    font-size: 22px;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-content h3 {
+    font-size: 20px;
+  }
+  
+  .modal-content p {
+    font-size: 16px;
+  }
+  
+  .modal-close-btn {
+    font-size: 16px;
+    padding: 10px 20px;
   }
 }

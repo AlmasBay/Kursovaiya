@@ -25,10 +25,10 @@ const MobileNav = () => {
         <nav className="mobile-menu">
           <Link to="main" smooth duration={500} offset={-80} onClick={closeMenu}>Главная</Link>
           <Link to="about" smooth duration={500} offset={-80} onClick={closeMenu}>О сайте</Link>
-          <Link to="test" smooth duration={500} offset={-80} onClick={closeMenu}>Тест</Link>
           <Link to="pets" smooth duration={500} offset={-80} onClick={closeMenu}>Питомцы</Link>
           <Link to="gallery" smooth duration={500} offset={-80} onClick={closeMenu}>Галерея</Link>
-          <Link to="map" smooth duration={500} offset={-80} onClick={closeMenu}>Карта</Link>
+          <Link to="pet-meals" smooth duration={500} offset={-80} onClick={closeMenu}>Дневник</Link>
+          <Link to="test" smooth duration={500} offset={-80} onClick={closeMenu}>Тест</Link>
           <Link to="faq" smooth duration={500} offset={-80} onClick={closeMenu}>FAQ</Link>
         </nav>
       )}

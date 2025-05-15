@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./TestComponent.css";
 import cat from "../../src/assets/cat.png";
 import dog from "../../src/assets/dog.png";
 import parrot from "../../src/assets/parrot.png";
 
-export default function TestComponent() {
+export default function TestComponent({ isLoggedIn }) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [score, setScore] = useState({ dog: 0, cat: 0, parrot: 0 });
   const [testCompleted, setTestCompleted] = useState(false);
+  const [previousResult, setPreviousResult] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showTest, setShowTest] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const questions = [
     {
@@ -91,17 +95,82 @@ export default function TestComponent() {
       ]
     }
   ];
+  
+  useEffect(() => {
+    const loadResults = async () => {
+      if (isLoggedIn) {
+        try {
+          const token = localStorage.getItem('authToken');
+          const response = await fetch("http://localhost:5000/api/test-results", {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            if (data.result) {
+              setPreviousResult(data.result);
+            }
+          }
+        } catch (err) {
+          console.error("Ошибка загрузки результатов:", err);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setIsLoading(false);
+      }
+    };
+
+    loadResults();
+  }, [isLoggedIn]);
+
+  const saveTestResult = async (result) => {
+    try {
+      const token = localStorage.getItem('authToken');
+      const response = await fetch("http://localhost:5000/api/save-test-result", {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ result })
+      });
+      
+      if (!response.ok) {
+        throw new Error("Ошибка сохранения результата");
+      }
+    } catch (err) {
+      console.error("Ошибка сохранения:", err);
+    }
+  };
 
   const handleAnswer = (pet) => {
-    setScore(prevScore => ({
-      ...prevScore,
-      [pet]: prevScore[pet] + 1
-    }));
+    const newScore = {
+      ...score,
+      [pet]: score[pet] + 1
+    };
+    setScore(newScore);
 
     if (questionIndex < questions.length - 1) {
       setQuestionIndex(questionIndex + 1);
     } else {
+      const result = getResult(newScore);
       setTestCompleted(true);
+      if (isLoggedIn) {
+        saveTestResult(result);
+      }
+    }
+  };
+
+  const getResult = (scoreData) => {
+    if (scoreData.dog > scoreData.cat && scoreData.dog > scoreData.parrot) {
+      return 'dog';
+    } else if (scoreData.cat > scoreData.dog && scoreData.cat > scoreData.parrot) {
+      return 'cat';
+    } else {
+      return 'parrot';
     }
   };
 
@@ -109,23 +178,72 @@ export default function TestComponent() {
     setScore({ dog: 0, cat: 0, parrot: 0 });
     setQuestionIndex(0);
     setTestCompleted(false);
+    setPreviousResult(null);
+    setShowTest(true);
   };
 
-  const getPetImage = () => {
-    if (score.dog > score.cat && score.dog > score.parrot) {
-      return dog;
-    } else if (score.cat > score.dog && score.cat > score.parrot) {
-      return cat;
+  const startTest = () => {
+    if (isLoggedIn) {
+      setShowTest(true);
     } else {
-      return parrot;
+      setShowModal(true);
     }
   };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const getPetImage = (pet) => {
+    switch (pet) {
+      case 'dog': return dog;
+      case 'cat': return cat;
+      case 'parrot': return parrot;
+      default: return null;
+    }
+  };
+
+  const getPetName = (pet) => {
+    switch (pet) {
+      case 'dog': return 'Собака';
+      case 'cat': return 'Кошка';
+      case 'parrot': return 'Попугай';
+      default: return '';
+    }
+  };
+
+  if (isLoading) {
+    return <div className="loading">Загрузка...</div>;
+  }
 
   return (
     <div id='test' className="TestComponent">
       <h1 className="Title-test">Пройдите тест</h1>
       <h2 className="PreTitle-test">Чтобы узнать, какой питомец вам подходит</h2>
-      {!testCompleted ? (
+      
+      {/* Кнопка видна всегда */}
+      {!showTest && !testCompleted && (
+        <div className="test-start-container">
+          <button onClick={startTest} className="start-test-btn">
+            Открыть тест
+          </button>
+        </div>
+      )}
+
+      {/* Показываем предыдущий результат только для авторизованных */}
+      {isLoggedIn && previousResult && !testCompleted && !showTest && (
+        <div className="previous-result">
+          <h3>Ваш предыдущий результат:</h3>
+          <p>{getPetName(previousResult)}</p>
+          <img src={getPetImage(previousResult)} alt="previous pet" className="pet-image" />
+          <button onClick={restartTest} className="restart-btn">
+            Пройти тест заново
+          </button>
+        </div>
+      )}
+
+      {/* Тест показываем только если пользователь авторизован и нажал кнопку */}
+      {showTest && isLoggedIn && !testCompleted ? (
         <div className="Test">
           <div className="question-container">
             <h3>{questions[questionIndex].question}</h3>
@@ -138,14 +256,22 @@ export default function TestComponent() {
             </div>
           </div>
         </div>
-      ) : (
+      ) : testCompleted && isLoggedIn ? (
         <div className="result">
-          <h3>Ваш идеальный питомец:   
-            {score.dog > score.cat && score.dog > score.parrot ? '   Собака' : 
-            score.cat > score.dog && score.cat > score.parrot ? '   Кошка' : '   Попугай'}
-          </h3>
-          <img src={getPetImage()} alt="pet" className="pet-image" />
+          <h3>Ваш идеальный питомец: {getPetName(getResult(score))}</h3>
+          <img src={getPetImage(getResult(score))} alt="pet" className="pet-image" />
           <button onClick={restartTest} className="restart-btn">Начать заново</button>
+        </div>
+      ) : null}
+
+      {/* Модальное окно для незарегистрированных пользователей */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Необходима авторизация</h3>
+            <p>Для прохождения теста необходимо войти в аккаунт</p>
+            <button onClick={closeModal} className="modal-close-btn">Понятно</button>
+          </div>
         </div>
       )}
     </div>

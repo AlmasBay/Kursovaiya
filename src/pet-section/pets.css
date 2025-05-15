@@ -1,10 +1,9 @@
 .title-pets {
   text-align: center;
-  margin: 0 ;
-  
+  margin: 0;
   color: white;
   font-family: "Dela Gothic One", sans-serif;
-font-weight: 400;
+  font-weight: 400;
   font-size: 70px;
   width: 100%;
 }
@@ -14,3 +13,33 @@ font-weight: 400;
 }
 
 
+
+/* Медиа-запросы для заголовка */
+@media screen and (max-width: 768px) {
+  .title-pets {
+    font-size: 40px;
+    padding: 0 10px;
+  }
+}
+
+.SecondSection {
+  user-select: none;
+  position: relative; /* Добавляем позиционирование relative */
+  min-height: 100vh; /* Чтобы секция занимала хотя бы высоту экрана */
+}
+
+/* Добавим контейнер для питомцев на мобильных */
+.pets-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .pets-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,613 @@
+.PetMealsComponent {
+    padding-top: 70px;
+    background-color: #FF7514;
+    min-height: 100vh;
+    text-align: center;
+    user-select: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: "Dela Gothic One", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, #FF7514, #FF9D5C);
+  }
+  
+  .Title-meals {
+    font-size: 70px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+  }
+  
+  .PreTitle-meals {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+  }
+  
+  .meals-content {
+    background-color: transparent;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .meals-start-container {
+    margin: 40px auto;
+  }
+  
+  .start-meals-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 22px;
+    padding: 16px 35px;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    display: block;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .start-meals-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: white;
+  }
+  
+  .start-meals-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pet-selector {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .pet-selector h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .pets-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .pet-select-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 18px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FF7514;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 117, 20, 0.3);
+    min-width: 150px;
+  }
+  
+  .pet-select-btn.active {
+    background-color: #e66300;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(230, 99, 0, 0.4);
+  }
+  
+  .pet-select-btn:hover:not(.active) {
+    background-color: #ff8d3a;
+  }
+  
+  .add-meal-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 20px;
+    padding: 18px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    margin: 30px auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    display: block;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: fit-content;
+  }
+  
+  .add-meal-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: white;
+  }
+  
+  .meal-form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .meal-form-container h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .meal-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group:nth-child(5) {
+    grid-column: span 2;
+  }
+  
+  .form-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #FF7514;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Dela Gothic One", sans-serif;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  
+  .form-group input[type="date"],
+  .form-group input[type="time"] {
+    padding: 11px 15px;
+  }
+  
+  .form-group input[type="number"] {
+    padding: 12px 15px;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  
+  .form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF7514'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 35px;
+  }
+  
+  .submit-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FF7514;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 117, 20, 0.3);
+    min-width: 120px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #e66300;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(230, 99, 0, 0.4);
+  }
+  
+  .cancel-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .meals-list {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .meals-list h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .meal-item {
+    padding: 25px;
+    border-bottom: 2px solid #FF7514;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .meal-item:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .meal-info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .meal-date-time {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .meal-date {
+    font-weight: bold;
+    color: #FF7514;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+  
+  .meal-time {
+    color: #FF7514;
+    font-size: 20px;
+    white-space: nowrap;
+  }
+  
+  .meal-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .meal-food {
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  
+  .meal-quantity {
+    color: #FF7514;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  
+  .meal-notes {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+    word-break: break-word;
+  }
+  
+  .meal-actions {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+  }
+  
+  .edit-btn, .delete-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .edit-btn {
+    background-color: #FF7514;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background-color: #e66300;
+    transform: translateY(-3px);
+  }
+  
+  .delete-btn {
+    background-color: #ff3d00;
+    color: white;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e63500;
+    transform: translateY(-3px);
+  }
+  
+  .close-component-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 20px;
+    padding: 16px 35px;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    margin: 40px auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    display: block;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: fit-content;
+  }
+  
+  .close-component-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: white;
+  }
+  
+  .no-pets-message,
+  .no-meals-message {
+    font-family: "Dela Gothic One", sans-serif;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    transition: all 0.3s ease;
+    color: #FF7514;
+    font-size: 24px;
+    box-sizing: border-box;
+  }
+  
+  .loading {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 24px;
+    color: white;
+    margin-top: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: slideIn 0.4s ease;
+    box-sizing: border-box;
+  }
+  
+  .modal-content h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .modal-content p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 30px;
+    word-break: break-word;
+  }
+  
+  .modal-close-btn {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 18px;
+    padding: 12px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FF7514;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 117, 20, 0.3);
+    min-width: 120px;
+  }
+  
+  .modal-close-btn:hover {
+    background-color: #e66300;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(230, 99, 0, 0.4);
+  }
+  
+  @media (max-width: 768px) {
+    .Title-meals {
+      font-size: 50px;
+    }
+  
+    .PreTitle-meals {
+      font-size: 28px;
+    }
+  
+    .meals-content {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    .pet-selector,
+    .meal-form-container,
+    .meals-list,
+    .no-pets-message,
+    .no-meals-message {
+      padding: 30px;
+    }
+  
+    .meal-form {
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+    }
+  
+    .form-group:nth-child(5),
+    .form-buttons {
+      grid-column: span 1;
+    }
+  
+    .pet-select-btn,
+    .add-meal-btn,
+    .submit-btn,
+    .cancel-btn,
+    .close-component-btn,
+    .edit-btn,
+    .delete-btn,
+    .modal-close-btn {
+      font-size: 16px;
+      padding: 14px 25px;
+    }
+  
+    .meal-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+  
+    .meal-actions {
+      align-self: flex-end;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .Title-meals {
+      font-size: 36px;
+    }
+  
+    .PreTitle-meals {
+      font-size: 20px;
+    }
+  
+    .pet-selector h3,
+    .meal-form-container h3,
+    .meals-list h3,
+    .modal-content h3 {
+      font-size: 22px;
+    }
+  
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+  
+    .form-group input[type="date"],
+    .form-group input[type="time"] {
+      padding: 9px 12px;
+    }
+  
+    .form-group textarea {
+      min-height: 100px;
+    }
+  
+    .no-pets-message,
+    .no-meals-message,
+    .modal-content p {
+      font-size: 18px;
+    }
+  
+    .meal-date,
+    .meal-time,
+    .meal-food,
+    .meal-quantity {
+      font-size: 16px;
+    }
+  
+    .meal-notes {
+      font-size: 14px;
+    }
+  }

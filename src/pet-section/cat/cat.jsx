@@ -4,20 +4,34 @@ import cat from "../../assets/cat.png";
 
 const Cat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(1);
+  const totalSections = 5;
+
+  const handleNext = (e) => {
+    e.stopPropagation();
+    setActiveSection(prev => (prev < totalSections ? prev + 1 : prev));
+  };
+
+  const handlePrev = (e) => {
+    e.stopPropagation();
+    setActiveSection(prev => (prev > 1 ? prev - 1 : prev));
+  };
 
   return (
-    <>
-      
+    <div className="animal-container">
+      <img 
+        src={cat} 
+        alt="Cat" 
+        className="cat" 
+        onClick={() => setIsOpen(true)} 
+      />
 
-      <img src={cat} alt="Cat" className="cat" onClick={() => setIsOpen(true)} />
-
-      
       {isOpen && (
         <div className="modal-overlay" onClick={() => setIsOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-btn" onClick={() => setIsOpen(false)}>
-              &times;
-            </span>
+            <button className="close-btn" onClick={() => setIsOpen(false)}>
+              ✕
+            </button>
             <h1 className="title-modal">Уход за кошками: Полное руководство</h1>
 
             <h2 className="Pre-title-modal">1. Питание</h2>
@@ -28,7 +42,7 @@ const Cat = () => {
             <iframe
               className="modal-video"
               src="https://www.youtube.com/embed/TTPT9rbjjA4?si=Sb6g9nyQc_ueJwG1"
-              title="Видео про Питание  кошек"
+              title="Видео про Питание кошек"
               allowFullScreen
             ></iframe>
 
@@ -39,7 +53,7 @@ const Cat = () => {
             <iframe
               className="modal-video"
               src="https://www.youtube.com/embed/QJXEMiNcek4?si=xnungtuWFlTlVHsh"
-              title="Видео про Лоток и гигиену  кошек"
+              title="Видео про Лоток и гигиену кошек"
               allowFullScreen
             ></iframe>
 
@@ -75,11 +89,19 @@ const Cat = () => {
               title="Видео про игры для кошек"
               allowFullScreen
             ></iframe>
+            
+            <div className="mobile-navigation">
+              <button className="mobile-nav-btn" onClick={handlePrev}>
+                Назад
+              </button>
+              <button className="mobile-nav-btn" onClick={handleNext}>
+                Вперед
+              </button>
+            </div>
           </div>
         </div>
       )}
-      
-    </>
+    </div>
   );
 };
 

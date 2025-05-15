@@ -6,6 +6,11 @@
     user-select: none;
     caret-color: transparent;
     margin: 0;
+    width: 500px; /* Базовый размер для десктопа */
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .parrot:hover,
@@ -14,17 +19,7 @@
     filter: drop-shadow(0 0 15px rgba(255, 117, 20, 0.8));
 }
 
-
-/* Для контейнеров с изображениями, чтобы они тоже имели одинаковые размеры */
-.parrot, .dog, .cat {
-    width: 500px; /* Задаём одинаковую ширину контейнерам */
-    height: 700px; /* Задаём одинаковую высоту контейнерам */
-    
-    align-items: center; /* Центрируем изображение по вертикали */
-    justify-content: center; /* Центрируем изображение по горизонтали */
-}
-
-/* Modal overlays */
+/* Модальные оверлеи */
 .modal-overlay-parrot,
 .modal-overlay-dog,
 .modal-overlay {
@@ -40,53 +35,54 @@
     justify-content: center;
 }
 
-/* Modal content - parrot & dog */
+/* Содержимое модальных окон */
 .modal-content-parrot,
-.modal-content-dog {
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    position: relative;
-}
-
-/* Modal content - cat */
+.modal-content-dog,
 .modal-content {
     background: white;
     padding: 20px;
     border-radius: 20px;
     position: relative;
     text-align: center;
-    max-width: 90%;
-    max-height: 80%;
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
     overflow-y: auto;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: slideIn 0.3s ease;
 }
 
-/* Close buttons */
+/* Кнопка закрытия */
 .close-btn-parrot,
 .close-btn-dog,
 .close-btn {
     position: absolute;
-    top: 5px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.close-btn {
     top: 15px;
     right: 20px;
-    font-size: 28px;
-    color: #333;
-    transition: color 0.3s ease;
+    width: 36px;
+    height: 36px;
+    background-color: #FF7514; /* Оранжевый */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    transition: all 0.3s ease;
+    z-index: 20;
 }
 
+.close-btn-parrot:hover,
+.close-btn-dog:hover,
 .close-btn:hover {
-    color: red;
+    background-color: #E65C00; /* Темнее при наведении */
+    transform: scale(1.1);
 }
 
-/* Video in cat modal */
+/* Видео в модальном окне */
 .modal-video {
     width: 100%;
     max-width: 560px;
@@ -95,14 +91,14 @@
     margin: 10px 0;
 }
 
-/* Typography */
+/* Типографика */
 .title-modal,
 .Pre-title-modal,
 .paragraph {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Animations */
+/* Анимации */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -111,4 +107,69 @@
 @keyframes slideIn {
     from { transform: translateY(-20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media screen and (max-width: 768px) {
+    /* Адаптив для карточек животных */
+    .parrot, .dog, .cat {
+        width: 100%;
+        height: auto;
+        max-height: 350px;
+        margin: 15px 0;
+    }
+
+    /* Адаптив для модальных окон */
+    .modal-overlay-parrot,
+    .modal-overlay-dog,
+    .modal-overlay {
+        align-items: flex-start; /* Размещаем модальное окно вверху экрана */
+        padding: 10px; /* Добавляем отступы по бокам */
+    }
+
+    /* Адаптив для содержимого модальных окон */
+    .modal-content-parrot,
+    .modal-content-dog,
+    .modal-content {
+        width: 95%;
+        padding: 20px 15px 30px 15px;
+        max-height: 85vh;
+        margin-top: 20px;
+        border-radius: 15px; /* Немного уменьшаем скругление углов */
+    }
+
+    /* Адаптив для кнопок закрытия */
+    .close-btn-parrot,
+    .close-btn-dog,
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
+    }
+
+    /* Адаптив для текста */
+    .title-modal {
+        font-size: 22px;
+        margin-top: 25px;
+        padding: 0 20px;
+    }
+
+    .Pre-title-modal {
+        font-size: 18px;
+    }
+
+    .paragraph {
+        font-size: 16px;
+        padding: 0 5px;
+        line-height: 1.4;
+    }
+
+    .modal-video {
+        height: 200px;
+        width: 100%;
+        max-width: 100%;
+        margin: 10px 0 20px 0;
+    }
 }
